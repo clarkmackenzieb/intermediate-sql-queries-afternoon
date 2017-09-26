@@ -1,0 +1,71 @@
+/* SELECT inv.invoicedate, c.firstname, c.lastname, inv.total FROM Invoice inv
+JOIN Customer c ON inv.customerid = c.customerid; */
+
+/* SELECT  c.firstname AS cfirstname, 
+		c.lastname as clastname, 
+        e.firstname AS efirstname, 
+        e.lastname  AS elastname
+        FROM Customer c
+JOIN Employee e ON c.supportrepid = e.employeeid; */
+
+/* SELECT 	al.title AS album_title, 
+		ar.name as artist_name
+FROM Album al
+	JOIN Artist ar ON al.artistid = ar.artistid; */
+    
+/* SELECT tr.name, play.name, playt.TrackId FROM PlaylistTrack playt
+	JOIN Playlist play ON playt.playlistid = play.playlistid
+    JOIN Track tr ON playt.trackid = tr.trackid; */
+    
+/*     SELECT tr.name AS track_name, al.title AS album_title FROM Track tr
+    	JOIN Album al ON tr.albumid = al.albumid
+        JOIN Genre g ON tr.genreid = g.genreid
+        WHERE g.name = "Alternative"; */
+        
+/* SELECT	tr.name AS track_name, 
+		g.name AS genre_name, 
+        al.title AS album_title, 
+        ar.name AS artist_name 
+        FROM Track tr
+	JOIN PlaylistTrack pltr ON tr.trackid = pltr.trackid
+    JOIN Playlist pl ON pltr.playlistid = pl.playlistid
+    JOIN Album al ON tr.albumid = al.albumid
+    JOIN Artist ar ON al.artistid = ar.artistid
+    JOIN Genre g ON tr.genreid = g.genreid
+WHERE pl.name = "Music";
+         */
+         
+/* SELECT * FROM Invoice
+	WHERE InvoiceId IN (SELECT InvoiceId FROM InvoiceLine WHERE UnitPrice > 0.99); */
+/*     
+SELECT * FROM Track
+	WHERE TrackId IN (SELECT TrackId 
+                      FROM PlaylistTrack 
+                      WHERE PlaylistId IN (SELECT PlaylistId 
+                                           FROM Playlist
+                                           WHERE name = "Music"))
+         */
+         
+/* SELECT * FROM Track
+	WHERE TrackId IN (SELECT TrackId 
+                      FROM PlaylistTrack 
+                      WHERE PlaylistId = 5)          */
+                      
+/* SELECT * FROM Track
+	WHERE AlbumId IN (SELECT AlbumId 
+                      FROM Album
+                      WHERE ArtistId IN (SELECT ArtistId 
+                                         FROM Artist
+                                         WHERE name = "Queen")) */
+/*         
+UPDATE Customer
+	SET supportrepid = 4
+	WHERE email = "luisrojas@yahoo.cl";
+         
+SELECT * FROM Customer; */
+
+/* UPDATE Track
+	SET composer = "The darkness around us"
+    WHERE composer IS null;
+    
+SELECT * FROM Track */
